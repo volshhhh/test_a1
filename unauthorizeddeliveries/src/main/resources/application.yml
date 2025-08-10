@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: unauthorizeddeliveries
+  datasource:
+    url: jdbc:postgresql://localhost:5432/unauthorized_deliveries
+    username: postgres
+    password: 12345
+    hikari:
+      maximum-pool-size: 10
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+app:
+  files:
+    logins: logins.csv
+    postings: postings.csv
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    com.example.unauthorizeddeliveries: INFO
